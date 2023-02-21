@@ -1,0 +1,111 @@
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+; #Warn  ; Enable warnings to assist with detecting common errors.
+#Persistent
+#Warn
+#SingleInstance force
+#MaxHotkeysPerInterval 300
+SendMode Input
+
+ScriptEnabled := true
+
+;
+;
+;  Note: buy lots of items for this.  move to the square you want to loop on before starting
+;
+;	k	4xw		4xk		i	s	k	wait	
+
+; F10 to exit
+F10::
+{
+	ExitApp
+}
+
+; F9 to pause all functionality, useful for dungeons
+F9::
+{
+	ScriptEnabled := !ScriptEnabled
+}
+
+g::
+{
+	if (!ScriptEnabled) {
+		Return
+	}
+	Loop,
+	{
+
+;	activate character	
+		Send {k Down}
+		Sleep 125
+		Send {k Up}
+		Sleep 125
+		
+; naviagate to item use	(menu up 4)
+		Send {w Down}
+		Sleep 125
+		Send {w Up}
+		Sleep 125
+		Send {w Down}
+		Sleep 125
+		Send {w Up}
+		Sleep 125
+		Send {w Down}
+		Sleep 125
+		Send {w Up}
+		Sleep 125
+		Send {w Down}
+		Sleep 125
+		Send {w Up}
+		Sleep 125
+		
+;	use item (4 activates)
+		Send {k Down}
+		Sleep 125
+		Send {k Up}
+		Sleep 125	
+		Send {k Down}
+		Sleep 125
+		Send {k Up}
+		Sleep 125	
+		Send {k Down}
+		Sleep 125
+		Send {k Up}
+		Sleep 125	
+		Send {k Down}
+		Sleep 125
+		Send {k Up}
+		Sleep 2000
+
+; clear any notice that came up)
+		Send {k Down}
+		Sleep 125
+		Send {k Up}
+		Sleep 125
+		Send {l Down}
+		Sleep 125
+		Send {l Up}
+		Sleep 125
+	
+; end turn	
+; open end turn menu, navigate down one, then end turn
+		Send {i Down}
+		Sleep 125
+		Send {i Up}
+		Sleep 125	
+		Send {s Down}
+		Sleep 125
+		Send {s Up}
+		Sleep 125	
+		Send {k Down}
+		Sleep 125
+		Send {k Up}
+		Sleep 125
+		
+; wait for new turn
+		Sleep 5000
+
+
+	}
+}
+
+h:: $stop := 1
