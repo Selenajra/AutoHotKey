@@ -10,6 +10,8 @@ SendMode Input
 
 ScriptEnabled := true
 
+; Note: timeing for the menu nav isn't 100% consistent, If left to run this WILL fail after a bit.
+
 ;setup:
 ; Top inventory slot open
 ; 2nd inventory slot has mega-potions in it (must have some! or script will break)
